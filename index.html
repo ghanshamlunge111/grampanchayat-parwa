@@ -177,16 +177,24 @@
                            </div>
                            <div class="et_pb_section et_pb_section_1 et_section_regular" >
                               <div class="et_pb_row et_pb_row_0 et_pb_row_fullwidth">
-                                 <div class="et_pb_column et_pb_column_1_2 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough" style="display: flex; flex-direction: column; justify-content: center;">
+                                 <div class="et_pb_column et_pb_column_1_2 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough">
                                     <div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
                                        <div class="et_pb_text_inner">
                                           <h2 style="text-align: center;">राज्य गीत</h2>
                                        </div>
                                     </div>
                                     <div class="et_pb_module et_pb_video et_pb_video_0">
-                                       <div class="et_pb_video_box"><iframe loading="lazy" title="जय जय महाराष्ट्र माझा, गर्जा महाराष्ट्र माझा..." width="1080" height="608" src="https://www.youtube.com/embed/zs-AYr99354?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                                    </div>
-                                    <div class="et_pb_module et_pb_text et_pb_text_1  et_pb_text_align_left et_pb_bg_layout_light">
+                                       <div class="et_pb_video_box" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; width: 100%; display: block !important;">
+                                          <iframe 
+                                             title="जय जय महाराष्ट्र माझा, गर्जा महाराष्ट्र माझा..." 
+                                             src="https://www.youtube.com/embed/zs-AYr99354" 
+                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                             referrerpolicy="strict-origin-when-cross-origin" 
+                                             allowfullscreen
+                                             frameborder="0"
+                                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block !important;"
+                                          ></iframe>
+                                       </div>
                                     </div>
                                  </div>
                                  <div class="et_pb_column et_pb_column_1_2 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough et-last-child">
@@ -866,6 +874,78 @@
       <script type="text/javascript" src="js/jquery.fitvids.js" id="fitvids-js"></script>
       <script type="text/javascript" src="js/jquery.mobile.js" id="jquery-mobile-js"></script>
       <script type="text/javascript" src="js/common.js" id="et-core-common-js"></script>
+      <script type="text/javascript">
+         jQuery(document).ready(function($) {
+            // Ensure video is always visible with proper responsive wrapper
+            function ensureVideoDisplay() {
+               var $video = $('.et_pb_video_0');
+               var $videoBox = $video.find('.et_pb_video_box');
+               var $iframe = $videoBox.find('iframe');
+               
+               if ($iframe.length && $videoBox.length) {
+                  // Ensure video box has responsive wrapper styles
+                  $video.css({
+                     'display': 'block',
+                     'visibility': 'visible',
+                     'opacity': '1',
+                     'width': '100%'
+                  });
+                  
+                  // Force responsive wrapper on video box
+                  $videoBox.css({
+                     'display': 'block',
+                     'visibility': 'visible',
+                     'position': 'relative',
+                     'padding-bottom': '56.25%', // 16:9 aspect ratio
+                     'height': '0',
+                     'overflow': 'hidden',
+                     'width': '100%',
+                     'max-width': '100%'
+                  });
+                  
+                  // Ensure iframe is absolutely positioned
+                  $iframe.css({
+                     'position': 'absolute',
+                     'top': '0',
+                     'left': '0',
+                     'width': '100%',
+                     'height': '100%',
+                     'border': 'none',
+                     'display': 'block',
+                     'visibility': 'visible'
+                  });
+                  
+                  // If fitVids wrapped it, ensure the wrapper doesn't break things
+                  var $fluidWrapper = $videoBox.find('.fluid-width-video-wrapper');
+                  if ($fluidWrapper.length) {
+                     $fluidWrapper.css({
+                        'position': 'absolute',
+                        'top': '0',
+                        'left': '0',
+                        'width': '100%',
+                        'height': '100%',
+                        'padding': '0'
+                     });
+                  }
+               }
+            }
+            
+            // Run immediately and after delays
+            ensureVideoDisplay();
+            setTimeout(ensureVideoDisplay, 100);
+            setTimeout(ensureVideoDisplay, 500);
+            
+            // Prevent fitVids from breaking our responsive wrapper
+            if (typeof $.fn.fitVids !== 'undefined') {
+               var originalFitVids = $.fn.fitVids;
+               $.fn.fitVids = function(options) {
+                  var result = originalFitVids.apply(this, arguments);
+                  setTimeout(ensureVideoDisplay, 50);
+                  return result;
+               };
+            }
+         });
+      </script>
       <a id="pojo-a11y-skip-content" class="pojo-skip-link pojo-skip-content" tabindex="1" accesskey="s" href="#content">Skip to content</a>
       <nav id="pojo-a11y-toolbar" class="pojo-a11y-toolbar-right" role="navigation">
          <div class="pojo-a11y-toolbar-toggle">
