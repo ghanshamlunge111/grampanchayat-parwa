@@ -111,10 +111,19 @@ body.pojo-a11y-focusable a:focus{ outline-style: groove !important;	outline-widt
 
 #main-header .et_mobile_menu .menu-item-has-children > a { background-color: transparent; position: relative; }
 #main-header .et_mobile_menu .menu-item-has-children > a:after { font-family: 'ETmodules'; text-align: center; speak: none; font-weight: normal; font-variant: normal; text-transform: none; -webkit-font-smoothing: antialiased; position: absolute; }
-#main-header .et_mobile_menu .menu-item-has-children > a:after { font-size: 16px; content: '\4c'; top: 13px; right: 10px; }
-#main-header .et_mobile_menu .menu-item-has-children.visible > a:after { content: '\4d'; }
-#main-header .et_mobile_menu ul.sub-menu { display: none !important; visibility: hidden !important;  transition: all 1.5s ease-in-out;}
+#main-header .et_mobile_menu .menu-item-has-children > a:after { font-size: 16px; content: '\25B6'; top: 13px; right: 10px; font-family: Arial, sans-serif !important; }
+#main-header .et_mobile_menu .menu-item-has-children.visible > a:after { content: '\25BC'; font-family: Arial, sans-serif !important; }
+#main-header .et_mobile_menu ul.sub-menu { display: none !important; visibility: hidden !important;  transition: all 0.3s ease-in-out;}
 #main-header .et_mobile_menu .visible > ul.sub-menu { display: block !important; visibility: visible !important; }
+/* Mobile menu improvements */
+.mobile_nav.closed #mobile_menu,
+.mobile_nav.closed .et_mobile_menu { display: none !important; }
+.mobile_nav.opened #mobile_menu,
+.mobile_nav.opened .et_mobile_menu { display: block !important; }
+.mobile_menu_bar_toggle,
+.mobile_menu_bar { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+#mobile_menu .sub-menu { display: none !important; }
+#mobile_menu .menu-item-has-children.visible .sub-menu { display: block !important; }
 
 
 
@@ -2016,7 +2025,6 @@ body #main-content .et_builder_inner_content>p {
 .et_pb_testimonial:before,
 .et_pb_toggle_title:before,
 .form-submit .et_pb_button:after,
-.mobile_menu_bar:before,
 a.et_pb_more_button:after {
     font-family: ETmodules !important;
     speak: none;
@@ -3746,13 +3754,26 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .mobile_menu_bar:before,
+.mobile_menu_bar_toggle:before,
 .et_toggle_slide_menu:after {
-    content: "\61";
-    font-size: 32px;
+    content: "\2261" !important;
+    font-size: 32px !important;
     left: 0;
     position: relative;
     top: 0;
-    cursor: pointer
+    cursor: pointer;
+    font-family: Arial, sans-serif !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+}
+.mobile_nav.opened .mobile_menu_bar:before,
+.mobile_nav.opened .mobile_menu_bar_toggle:before {
+    content: "\00D7" !important;
+    font-size: 36px !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
+    display: inline-block !important;
+    line-height: 1 !important;
 }
 
 .mobile_nav .select_page {
@@ -4615,13 +4636,26 @@ body.admin-bar.et_fixed_nav.et_secondary_nav_enabled #main-header {
     line-height: 0
 }
 
-.mobile_menu_bar:before {
-    content: "a";
-    font-size: 32px;
+.mobile_menu_bar:before,
+.mobile_menu_bar_toggle:before {
+    content: "\2261" !important;
+    font-size: 32px !important;
     position: relative;
     left: 0;
     top: 0;
-    cursor: pointer
+    cursor: pointer;
+    font-family: Arial, sans-serif !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+}
+.mobile_nav.opened .mobile_menu_bar:before,
+.mobile_nav.opened .mobile_menu_bar_toggle:before {
+    content: "\00D7" !important;
+    font-size: 36px !important;
+    font-weight: bold !important;
+    font-family: Arial, sans-serif !important;
+    display: inline-block !important;
+    line-height: 1 !important;
 }
 
 .et_pb_module .mobile_menu_bar:before {
@@ -7083,13 +7117,15 @@ body.pojo-a11y-focusable a:focus {
 
 #main-header .et_mobile_menu .menu-item-has-children>a:after {
     font-size: 16px;
-    content: '\4c';
+    content: '\25B6';
     top: 13px;
     right: 10px;
+    font-family: Arial, sans-serif !important;
 }
 
 #main-header .et_mobile_menu .menu-item-has-children.visible>a:after {
-    content: '\4d';
+    content: '\25BC';
+    font-family: Arial, sans-serif !important;
 }
 
 #main-header .et_mobile_menu ul.sub-menu {
@@ -7772,4 +7808,18 @@ body.pojo-a11y-focusable a:focus {
         height: 70px !important;
         margin-right: 15px !important
     }
+}
+
+/* Mobile Menu Icon Override - Must be at end to override all other rules */
+.mobile_menu_bar:before,
+.mobile_menu_bar_toggle:before {
+    font-family: Arial, sans-serif !important;
+    content: "\2261" !important;
+}
+.mobile_nav.opened .mobile_menu_bar:before,
+.mobile_nav.opened .mobile_menu_bar_toggle:before {
+    font-family: Arial, sans-serif !important;
+    content: "\00D7" !important;
+    font-size: 36px !important;
+    font-weight: bold !important;
 }

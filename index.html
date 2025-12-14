@@ -50,7 +50,7 @@
             <div class="container clearfix et_menu_container">
                <div class="logo_container">
                   <span class="logo_helper"></span>
-                  <a href="https://demo.kicktrans.com/">
+                  <a href="index.html">
                   <img src="./assets/logo.png" width="459" height="185" alt="डेमो" id="logo" data-height-percentage="100" />
                   </a>
                </div>
@@ -821,34 +821,134 @@
       <script type="text/javascript">
          (function($) {
          	
-         	function setup_collapsible_submenus() {
-         		var $menu = $('#mobile_menu'),
-         			top_level_link = '#mobile_menu .menu-item-has-children > a';
+         	// Ensure mobile menu is created
+         	function ensureMobileMenu() {
+         		var $mobileNav = $('.mobile_nav');
+         		var $topMenu = $('#top-menu');
+         		
+         		// If mobile menu doesn't exist, create it
+         		if ($mobileNav.length && !$mobileNav.find('#mobile_menu').length && $topMenu.length) {
+         			var $mobileMenu = $('<ul id="mobile_menu" class="et_mobile_menu"></ul>');
+         			$topMenu.clone().appendTo($mobileMenu);
+         			$mobileNav.append($mobileMenu);
+         		}
+         	}
+         	
+         	// Setup mobile menu toggle
+         	function setupMobileMenuToggle() {
+         		$('.mobile_menu_bar_toggle, .mobile_menu_bar').off('click.menuToggle').on('click.menuToggle', function(e) {
+         			e.preventDefault();
+         			e.stopPropagation();
          			
-         		$menu.find('a').each(function() {
-         			$(this).off('click');
-         			
-         			if ( $(this).is(top_level_link) ) {
-         				$(this).attr('href', '#');
+         			// Don't close if we're in the middle of toggling a submenu
+         			if ($(e.target).closest('a.menu-item-has-children').length) {
+         				return false;
          			}
          			
-         			if ( ! $(this).siblings('.sub-menu').length ) {
-         				$(this).on('click', function(event) {
-         					$(this).parents('.mobile_nav').trigger('click');
-         				});
+         			var $mobileNav = $(this).closest('.mobile_nav');
+         			var $mobileMenu = $mobileNav.find('#mobile_menu, .et_mobile_menu');
+         			
+         			if ($mobileNav.hasClass('closed')) {
+         				$mobileNav.removeClass('closed').addClass('opened');
+         				$mobileMenu.slideDown(300);
+         				$('body').addClass('et_pb_slide_menu_active');
          			} else {
-         				$(this).on('click', function(event) {
-         					event.preventDefault();
-         					$(this).parent().toggleClass('visible');
-         				});
+         				$mobileNav.removeClass('opened').addClass('closed');
+         				$mobileMenu.slideUp(300);
+         				$('body').removeClass('et_pb_slide_menu_active');
          			}
          		});
          	}
          	
-         	$(window).load(function() {
+         	// Setup collapsible submenus
+         	function setup_collapsible_submenus() {
+         		var $menu = $('#mobile_menu');
+         		
+         		if (!$menu.length) {
+         			ensureMobileMenu();
+         			$menu = $('#mobile_menu');
+         		}
+         		
+         		if (!$menu.length) return;
+         		
+         		// Use native JavaScript with capture phase to intercept BEFORE jQuery handlers
+         		document.removeEventListener('click', handleMobileMenuClick, true);
+         		document.addEventListener('click', handleMobileMenuClick, true);
+         		
+         		// Also set href to # for items with submenus
+         		$menu.find('li.menu-item-has-children > a').attr('href', '#');
+         	}
+         	
+         	// Native JavaScript handler with capture phase (runs before jQuery)
+         	function handleMobileMenuClick(event) {
+         		var target = event.target;
+         		var $link = $(target).closest('#mobile_menu a, .et_mobile_menu a');
+         		
+         		if (!$link.length) return;
+         		
+         		var $parent = $link.parent('li');
+         		var $submenu = $link.siblings('.sub-menu');
+         		var isSubmenuItem = $parent.closest('.sub-menu').length > 0;
+         		var hasSubmenu = $submenu.length > 0;
+         		
+         		if (hasSubmenu) {
+         			// This is a parent menu item with submenu - toggle submenu, don't close menu
+         			event.preventDefault();
+         			event.stopImmediatePropagation();
+         			event.stopPropagation();
+         			
+         			$link.attr('href', '#');
+         			$parent.toggleClass('visible');
+         			$submenu.slideToggle(300);
+         			
+         			return false;
+         		} else if (!isSubmenuItem) {
+         			// This is a top-level menu item without submenu - close menu
+         			var $mobileNav = $link.closest('.mobile_nav');
+         			if ($mobileNav.hasClass('opened')) {
+         				setTimeout(function() {
+         					$mobileNav.find('.mobile_menu_bar').trigger('click.menuToggle');
+         				}, 100);
+         			}
+         		} else {
+         			// This is a submenu item - navigate and close menu
+         			var $mobileNav = $link.closest('.mobile_nav');
+         			if ($mobileNav.hasClass('opened')) {
+         				setTimeout(function() {
+         					$mobileNav.find('.mobile_menu_bar').trigger('click.menuToggle');
+         				}, 300);
+         			}
+         		}
+         	}
+         	
+         	// Initialize on document ready
+         	$(document).ready(function() {
+         		ensureMobileMenu();
+         		setupMobileMenuToggle();
          		setTimeout(function() {
          			setup_collapsible_submenus();
-         		}, 700);
+         		}, 100);
+         	});
+         	
+         	// Also run on window load (for compatibility)
+         	$(window).on('load', function() {
+         		setTimeout(function() {
+         			ensureMobileMenu();
+         			setupMobileMenuToggle();
+         			setup_collapsible_submenus();
+         		}, 500);
+         	});
+         	
+         	// Run again after scripts.min.js loads to override it
+         	setTimeout(function() {
+         		setup_collapsible_submenus();
+         	}, 1500);
+          
+         	// Run one more time after all scripts are loaded
+         	$(window).on('load', function() {
+         		setTimeout(function() {
+         			setup_collapsible_submenus();
+         		}, 2000);
          	});
          
          })(jQuery);
@@ -1105,3 +1205,4 @@
       <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"32f53d14f98d47b88357dac201c2bb84","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
    </body>
 </html>
+
