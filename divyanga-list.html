@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="mr" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ग्रामपंचायत पारवा - दिव्यांग लाभार्थी यादी</title>
+    
+    <!-- Tailwind CSS & DaisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f3a5f',
+                        secondary: '#3a6b5c',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet" />
+
+    <style>
+        .marathi-font { font-family: 'Tiro Devanagari Marathi', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 flex flex-col min-h-screen marathi-font text-slate-800">
+
+    <!-- Shared Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs uppercase px-3 py-1 rounded-full mb-3 inline-block">कल्याणकारी योजना</span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-[#1f3a5f] mb-4">मंजूर दिव्यांग लाभार्थी यादी (५% राखीव निधी)</h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">ग्रामपंचायतीच्या वार्षिक उत्पन्नातील ५% राखीव निधी अंतर्गत सहाय्य मिळणारे मंजूर दिव्यांग लाभार्थी.</p>
+            </div>
+
+            <!-- Beneficiary Table Card -->
+            <div class="card bg-white border border-slate-200 shadow-xl rounded-2xl overflow-hidden mb-12">
+                <div class="bg-gradient-to-r from-[#1f3a5f] to-[#3a6b5c] text-white py-4 px-6 flex justify-between items-center">
+                    <h3 class="text-base sm:text-lg font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-wheelchair text-emerald-400"></i>
+                        <span>मंजूर दिव्यांग लाभार्थी यादी (२०२५-२६)</span>
+                    </h3>
+                    <span class="badge badge-success text-white font-bold">एकूण: ३ लाभार्थी</span>
+                </div>
+                <div class="p-6 overflow-x-auto my-scrollbar-thickness">
+                    <table class="table w-full text-slate-800 text-sm">
+                        <thead>
+                            <tr class="bg-slate-100 text-slate-700 font-bold">
+                                <th>अनुक्रमांक</th>
+                                <th>लाभार्थ्याचे नाव</th>
+                                <th>पत्ता / गाव</th>
+                                <th>अपंगत्वाचा प्रकार</th>
+                                <th>अपंगत्व टक्केवारी</th>
+                                <th>मंजूर लाभ / योजना</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <th>१</th>
+                                <td class="font-bold">श्री. गजानन दिनकरराव पवार</td>
+                                <td>कोळी वाडा, पारवा</td>
+                                <td>अस्थिव्यंग (Orthopedic)</td>
+                                <td class="font-bold text-emerald-700">५० %</td>
+                                <td>५% निधी अंतर्गत पेन्शन योजना</td>
+                            </tr>
+                            <tr>
+                                <th>२</th>
+                                <td class="font-bold">सौ. शिलाबाई शंकरराव लुंगे</td>
+                                <td>मस्के गल्ली, बोरव्हा</td>
+                                <td>कर्णबधिर (Hearing Impairment)</td>
+                                <td class="font-bold text-emerald-700">४५ %</td>
+                                <td>श्रवणयंत्र पुरवणे</td>
+                            </tr>
+                            <tr>
+                                <th>३</th>
+                                <td class="font-bold">श्री. आकाश बाळकृष्ण ठोंबरे</td>
+                                <td>रामानंद नगर, लखमापूर</td>
+                                <td>अस्थिव्यंग (Orthopedic)</td>
+                                <td class="font-bold text-emerald-700">६० %</td>
+                                <td>३-चाकाची सायकल वाटप योजना</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
