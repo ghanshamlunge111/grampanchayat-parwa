@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="mr" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>गट ग्रामपंचायत पारवा - निधी उत्पन्न व खर्च (Fund Details)</title>
+    
+    <!-- Tailwind CSS & DaisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f3a5f',
+                        secondary: '#3a6b5c',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet" />
+
+    <style>
+        .marathi-font { font-family: 'Tiro Devanagari Marathi', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 flex flex-col min-h-screen marathi-font text-slate-800">
+
+    <!-- Shared Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs uppercase px-3 py-1 rounded-full mb-3 inline-block">पारदर्शक कारभार</span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-[#1f3a5f] mb-4">निधी उत्पन्न व खर्च तपशील</h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">ग्रामपंचायतीचे आर्थिक वर्ष २०२५-२६ चे शासकीय अनुदान, स्वनिधी कर वसुली व विविध विकास कामांवरील खर्च.</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Stat 1 -->
+                <div class="card bg-white border border-slate-200 shadow-md p-6 rounded-2xl flex flex-row items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold block">एकूण जमा निधी (Income)</span>
+                        <span class="text-xl sm:text-2xl font-black text-blue-900">₹२४,५६,४००</span>
+                    </div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="card bg-white border border-slate-200 shadow-md p-6 rounded-2xl flex flex-row items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-receipt"></i>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold block">एकूण खर्च (Expenditure)</span>
+                        <span class="text-xl sm:text-2xl font-black text-red-900">₹१८,१२,२००</span>
+                    </div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="card bg-white border border-slate-200 shadow-md p-6 rounded-2xl flex flex-row items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold block">शिल्लक निधी (Balance)</span>
+                        <span class="text-xl sm:text-2xl font-black text-emerald-800">₹६,४४,२००</span>
+                    </div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="card bg-white border border-slate-200 shadow-md p-6 rounded-2xl flex flex-row items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <span class="text-slate-500 text-xs font-bold block">कर वसुली प्रमाण (Taxes %)</span>
+                        <span class="text-xl sm:text-2xl font-black text-amber-800">८२%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdowns -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Income Details Table -->
+                <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl p-6">
+                    <h3 class="font-extrabold text-[#1f3a5f] text-lg mb-6 border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-down text-emerald-600"></i>
+                        <span>उत्पन्न स्रोत तपशील (Sources of Revenue)</span>
+                    </h3>
+                    <div class="overflow-x-auto my-scrollbar-thickness">
+                        <table class="table w-full text-sm text-slate-800">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th>अनुदान / उत्पन्न प्रकार</th>
+                                    <th class="text-right">प्राप्त रक्कम</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">१५ वा वित्त आयोग (15th Finance Commission)</td>
+                                    <td class="text-right font-semibold text-[#1f3a5f]">₹१२,४०,०००</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">जिल्हा परिषद सेस फंड अनुदान</td>
+                                    <td class="text-right font-semibold text-[#1f3a5f]">₹५,००,०००</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">स्थानिक कर वसुली (घरपट्टी व पाणीपट्टी)</td>
+                                    <td class="text-right font-semibold text-[#1f3a5f]">₹४,१६,४००</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">इतर शासकीय विशेष योजना निधी</td>
+                                    <td class="text-right font-semibold text-[#1f3a5f]">₹३,००,०००</td>
+                                </tr>
+                                <tr class="bg-slate-50 font-black">
+                                    <td>एकूण जमा</td>
+                                    <td class="text-right text-emerald-700">₹२४,५६,४००</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Expenditure Details Chart/Bars -->
+                <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl p-6">
+                    <h3 class="font-extrabold text-[#1f3a5f] text-lg mb-6 border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-up text-red-600"></i>
+                        <span>खर्च विभागणी (Expenditure Breakdown)</span>
+                    </h3>
+                    <div class="space-y-5">
+                        
+                        <!-- Water & Hygiene -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                                <span class="text-slate-700">१. पाणी पुरवठा व स्वच्छता</span>
+                                <span class="text-[#1f3a5f]">₹६,२०,००० (३४%)</span>
+                            </div>
+                            <progress class="progress progress-primary w-full" value="34" max="100"></progress>
+                        </div>
+
+                        <!-- Roads & Infrastructure -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                                <span class="text-slate-700">२. रस्ते दुरुस्ती व सिमेंट काँक्रीटीकरण</span>
+                                <span class="text-[#1f3a5f]">₹५,४०,००० (३०%)</span>
+                            </div>
+                            <progress class="progress progress-primary w-full" value="30" max="100"></progress>
+                        </div>
+
+                        <!-- Lighting -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                                <span class="text-slate-700">३. सौर ऊर्जा व सार्वजनिक दिवाबत्ती</span>
+                                <span class="text-[#1f3a5f]">₹३,६०,००० (२०%)</span>
+                            </div>
+                            <progress class="progress progress-primary w-full" value="20" max="100"></progress>
+                        </div>
+
+                        <!-- Office Adm & Services -->
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                                <span class="text-slate-700">४. कार्यालयीन खर्च व नागरी सुविधा</span>
+                                <span class="text-[#1f3a5f]">₹२,९२,२०० (१६%)</span>
+                            </div>
+                            <progress class="progress progress-primary w-full" value="16" max="100"></progress>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>

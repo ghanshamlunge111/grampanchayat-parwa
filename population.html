@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="mr" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ग्रामपंचायत पारवा - ग्रामपंचायत टिपणी (Population)</title>
+    
+    <!-- Tailwind CSS & DaisyUI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f3a5f',
+                        secondary: '#3a6b5c',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Marathi:ital@0;1&family=Yatra+One&display=swap" rel="stylesheet" />
+
+    <style>
+        .marathi-font { font-family: 'Tiro Devanagari Marathi', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 flex flex-col min-h-screen marathi-font text-slate-800">
+
+    <!-- Shared Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <span class="bg-emerald-100 text-emerald-800 font-bold text-xs uppercase px-3 py-1 rounded-full mb-3 inline-block">प्रशासकीय टिपणी</span>
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-[#1f3a5f] mb-4">ग्रामपंचायत टिपणी व प्रशासकीय माहिती</h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm sm:text-base">ग्रामपंचायतीची प्रशासकीय माहिती, विविध समित्या, लोकसंख्या विश्लेषण व अधिकृत आकडेवारी.</p>
+            </div>
+
+            <!-- Content Grid: Basic Info & Committee details -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+                
+                <!-- Left: Basic Info Table (7 cols) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl overflow-hidden">
+                        <div class="bg-gradient-to-r from-[#1f3a5f] to-[#234a7d] text-white py-4 px-6">
+                            <h3 class="text-lg font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-emerald-400"></i>
+                                <span>मूलभूत प्रशासकीय माहिती</span>
+                            </h3>
+                        </div>
+                        <div class="p-6 overflow-x-auto my-scrollbar-thickness">
+                            <table class="table w-full text-slate-800 text-sm">
+                                <tbody class="divide-y divide-slate-100">
+                                    <tr>
+                                        <td class="font-bold text-slate-500">अधिकृत ईमेल आयडी</td>
+                                        <td class="font-bold text-[#1f3a5f]">gp.parwaborwhalakhmapur@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">सरपंचाचे नाव</td>
+                                        <td class="font-bold">श्री. गोपाल शंकरराव लुंगे</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">ग्रामसेवकाचे नाव</td>
+                                        <td class="font-bold">श्री. संतोष काळे</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">चार्ज घेतल्याचा दिनांक</td>
+                                        <td>०१-०४-२०२१</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">वार्ड संख्या व एकूण सदस्य</td>
+                                        <td class="font-bold">एकूण ३ वार्ड, ९ सदस्य (जनतेतून सरपंच)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">लागू असलेले कर</td>
+                                        <td>घरपट्टी, पाणीपट्टी, आरोग्य कर, दिवाबत्ती कर</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">लोकसभा मतदारसंघ</td>
+                                        <td>यवतमाळ-वाशीम</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold text-slate-500">विधानसभा मतदारसंघ</td>
+                                        <td>मंगरुळपीर-वाशीम</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Committees List (5 cols) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl p-6">
+                        <h3 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-users-gear text-emerald-600"></i>
+                            <span>ग्रामपंचायत स्तरावरील सक्रीय समित्या</span>
+                        </h3>
+                        
+                        <div class="space-y-4 max-h-[360px] overflow-y-auto my-scrollbar-thickness text-xs sm:text-sm">
+                            <!-- Committee 1 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-[#1f3a5f]">१. ग्राम आरोग्य पोषण, पाणी पुरवठा व स्वच्छता समिती</h4>
+                                <p class="text-xs text-slate-500 mt-1">निवड ठराव क्र. ५ | दिनांक: ०१-०४-२०२१</p>
+                            </div>
+                            <!-- Committee 2 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-[#1f3a5f]">२. ग्राम बाल संरक्षण समिती</h4>
+                                <p class="text-xs text-slate-500 mt-1">निवड ठराव क्र. ५ | दिनांक: ०१-०४-२०२१</p>
+                            </div>
+                            <!-- Committee 3 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-[#1f3a5f]">३. जैव विविधता व्यवस्थापन समिती</h4>
+                                <p class="text-xs text-slate-500 mt-1">निवड ठराव क्र. ५ | दिनांक: ०१-०४-२०२१</p>
+                            </div>
+                            <!-- Committee 4 -->
+                            <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <h4 class="font-bold text-[#1f3a5f]">४. सामाजिक अंकेक्षण (लेखा परीक्षण) समिती</h4>
+                                <p class="text-xs text-slate-500 mt-1">निवड ठराव क्र. ५ | दिनांक: ०१-०४-२०२१</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Anganwadi & Asha Workers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Anganwadi Centers -->
+                <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-child-reaching text-emerald-600"></i>
+                        <span>अंगणवाडी केंद्रांची यादी</span>
+                    </h3>
+                    <div class="overflow-x-auto my-scrollbar-thickness">
+                        <table class="table w-full text-slate-800 text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th>केंद्राचे नाव</th>
+                                    <th>अंगणवाडी सेविका</th>
+                                    <th>मदतनीस</th>
+                                    <th>संपर्क क्रमांक</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">अंगणवाडी केंद्र क्र. १ (पारवा)</td>
+                                    <td>सौ. नंदाताई शिवशंकर सावके</td>
+                                    <td>सौ. राधिका रवी महल्ले</td>
+                                    <td class="font-semibold text-emerald-700">८८०६३७३२९२</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">अंगणवाडी केंद्र क्र. २ (पारवा)</td>
+                                    <td>सौ. नंदाताई विजय लुंगे</td>
+                                    <td>सौ. -- प्रदीप सावके</td>
+                                    <td class="font-semibold text-emerald-700">८२६३९५४९९४</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">अंगणवाडी केंद्र क्र. ३ (पारवा)</td>
+                                    <td>सौ. किरण उद्धवराव आडोळे</td>
+                                    <td>सौ. सुजाता विनोद मनवर</td>
+                                    <td class="font-semibold text-emerald-700">८७८८७७३१९७</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">अंगणवाडी केंद्र क्र. १ (बोरव्हा बु.)</td>
+                                    <td>सौ. प्रतिभा संतोष लुंगे</td>
+                                    <td>सौ. सरला किशोर वाळके</td>
+                                    <td class="font-semibold text-emerald-700">९६७३०७८१४९</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">अंगणवाडी केंद्र क्र. १ (लखमापूर)</td>
+                                    <td>सौ. सपना गुलाब ठाकरे</td>
+                                    <td>सौ. रेखा गणेश ठाकरे</td>
+                                    <td class="font-semibold text-emerald-700">८८३०९०२९६६</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Asha Workers -->
+                <div class="card bg-white border border-slate-200 shadow-lg rounded-2xl p-6">
+                    <h3 class="font-bold text-slate-800 text-lg mb-4 border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user-nurse text-emerald-600"></i>
+                        <span>आशा सेविका यादी</span>
+                    </h3>
+                    <div class="overflow-x-auto my-scrollbar-thickness">
+                        <table class="table w-full text-slate-800 text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th>नाव</th>
+                                    <th>गाव / क्षेत्र</th>
+                                    <th>संपर्क क्रमांक</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">श्रीमती राधा सुरेश मनवर</td>
+                                    <td>पारवा क्षेत्र</td>
+                                    <td class="font-semibold text-emerald-700">+९१ ७८२३०३२१६८</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">सौ. शारदा गणेश मस्के</td>
+                                    <td>पारवा क्षेत्र</td>
+                                    <td class="font-semibold text-emerald-700">+९१ ९३७३७४३९६४</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">सौ. आशा नंदू वाळके</td>
+                                    <td>बोरव्हा (बु) क्षेत्र</td>
+                                    <td class="font-semibold text-emerald-700">+९१ ९०२२९२५४४५</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">सौ. स्वाती राजकुमार लुंगे</td>
+                                    <td>लखमापूर क्षेत्र</td>
+                                    <td class="font-semibold text-emerald-700">+९१ ९३०७८३४०६०</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/navigation.js"></script>
+</body>
+</html>
